@@ -57,3 +57,4 @@ cover/
 outputs/
 tracking.csv
 test_gemini.py
+outputs_all_jobs/
