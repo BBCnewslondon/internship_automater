@@ -1,0 +1,13 @@
+Dear Hiring Team at Aquark Technologies,
+
+I am writing to express my strong interest in the "Intuitive Interfaces for Quantum Technology" internship. As a Physics undergraduate at the University of Southampton with a background in quantum modeling and full-stack development, I am eager to help Aquark bridge the gap between complex cold-atom hardware and commercial end-users.
+
+My technical foundation includes developing numerical solvers for the Schrödinger equation and high-performance VMC engines in Rust. However, my primary strength lies in translating these complex physical systems into accessible software. In my Ombra Framework project, I engineered a Streamlit-based dashboard to visualize regime-detection data from Hidden Markov Models. By prioritizing intuitive navigation and real-time telemetry, I enabled non-expert users to interpret sophisticated algorithmic states—a challenge directly analogous to Aquark’s mission of making miniaturized quantum sensing accessible for real-world environments like maritime navigation.
+
+Aquark’s transition of the AQurate system from the lab to industrial platforms requires robust, user-centric control systems. My experience building MotionMonitor, a React Native app for real-time IMU telemetry, demonstrates my ability to transform raw sensor data into actionable insights through clean UI design. I am confident that my blend of physical intuition and interface engineering will contribute significantly to your goal of making quantum technology affordable and easy to use.
+
+Thank you for your time and consideration. I look forward to the possibility of discussing how my skills can support Aquark’s vision.
+
+Sincerely,
+
+Armaan Sachdeva

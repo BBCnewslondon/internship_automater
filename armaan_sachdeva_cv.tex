@@ -1,0 +1,402 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Armaan Sachdeva — Master CV
+%  Compiled with: pdflatex armaan_sachdeva_cv.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt, a4paper]{article}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ── Colours ─────────────────────────────────────────────────
+\definecolor{accent}{HTML}{1A3A5C}      % deep navy
+\definecolor{rule}{HTML}{2E6DA4}        % mid blue for rules
+\definecolor{light}{HTML}{5A7FA8}       % lighter blue for sub-text
+\definecolor{linkcolor}{HTML}{1A6496}
+
+% ── Hyperref ────────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  urlcolor=linkcolor,
+  linkcolor=linkcolor,
+  pdftitle={Armaan Sachdeva — CV},
+  pdfauthor={Armaan Sachdeva}
+}
+
+% ── Section formatting ──────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}
+  {}
+  [\color{rule}\titlerule]
+
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+% ── List settings ───────────────────────────────────────────
+\setlist[itemize]{leftmargin=1.4em, topsep=2pt, itemsep=1pt, parsep=0pt}
+\setlist[itemize,1]{label=\textcolor{rule}{\textbullet}}
+
+% ── Custom commands ─────────────────────────────────────────
+\newcommand{\cvname}[1]{%
+  {\Huge\bfseries\color{accent} #1}%
+}
+\newcommand{\cvtitle}[1]{%
+  {\large\color{light} #1}%
+}
+
+% project entry: {Title}{Tech tags}{bullets}
+\newenvironment{project}[2]{%
+  \textbf{\color{accent}#1} \hfill
+  \small\textit{\color{light}#2}%
+  \begin{itemize}%
+}{%
+  \end{itemize}%
+  \vspace{2pt}%
+}
+
+% ── No paragraph indent ─────────────────────────────────────
+\setlength{\parindent}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{plain}
+
+% ════════════════════════════════════════════════════════════
+%  HEADER
+% ════════════════════════════════════════════════════════════
+\begin{center}
+  \cvname{Armaan Sachdeva}\\[4pt]
+  \cvtitle{3rd-Year Physics Undergraduate}\\[6pt]
+  \small
+  \faEnvelope\;\href{mailto:as45g22@soton.ac.uk}{as45g22@soton.ac.uk}\quad
+  \faGithub\;\href{https://github.com/BBCnewslondon}{github.com/BBCnewslondon}\quad
+  \faLinkedin\;\href{https://www.linkedin.com/in/armaan-sachdeva-79b68b214/}{linkedin.com/in/armaan-sachdeva-79b68b214}\quad
+  \faMapMarker*\;United Kingdom
+\end{center}
+
+\vspace{2pt}
+{\color{rule}\hrule height 0.8pt}
+\vspace{6pt}
+
+% ════════════════════════════════════════════════════════════
+%  PROFILE
+% ════════════════════════════════════════════════════════════
+\section{Profile}
+
+High-achieving Physics undergraduate transitioning into a Master's degree, with a demonstrable record of
+translating rigorous mathematical and physical theory into production-quality software.
+Expertise spans \textbf{Computational Astrophysics}, \textbf{Machine Learning}, \textbf{Numerical Simulation},
+\textbf{Full-Stack Engineering}, and \textbf{Quantitative Finance}.
+Seeking a summer internship where deep physical intuition and software engineering proficiency can be applied
+to real-world computational challenges.
+
+% ════════════════════════════════════════════════════════════
+%  EDUCATION
+% ════════════════════════════════════════════════════════════
+\section{Education}
+
+\textbf{BSc (Hons) Physics} \hfill \textit{2022\,--\,2025}\\
+\textit{University of Southampton} \hfill \textcolor{light}{Expected 2:1}
+
+\begin{itemize}
+  \item Relevant modules: Quantum Mechanics, General Relativity, Electrodynamics, Statistical Mechanics,
+        Computational Physics, Advanced Mathematical Methods, Nuclear \& Particle Physics.
+\end{itemize}
+
+\vspace{4pt}
+\textbf{A-Levels} \hfill \textit{2020\,--\,2022}\\
+Physics (A), Mathematics (A*), Geography (B)
+
+% ════════════════════════════════════════════════════════════
+%  DISSERTATION
+% ════════════════════════════════════════════════════════════
+\section{Dissertation --- \textit{``Ripples in Reality: The Theoretical Origin and\\
+Observational Confirmation of Gravitational Waves''}}
+
+\begin{itemize}
+  \item \textbf{Mathematically Derived} the linearised perturbation of the Einstein field equations
+        $G_{\mu\nu}=8\pi T_{\mu\nu}$ to obtain the gravitational-wave equation
+        $\Box\bar{h}_{\mu\nu}=-16\pi T_{\mu\nu}$ in the Lorenz gauge, establishing the wave solutions
+        $h_{\mu\nu}^{\mathrm{TT}}$ in the transverse-traceless frame.
+  \item \textbf{Implemented} the quadrupole formula
+        $h_{ij}^{\mathrm{TT}}=\tfrac{2G}{rc^4}\ddot{I}_{ij}^{\mathrm{TT}}$
+        numerically to predict the chirp waveform for a compact binary inspiral,
+        matching the morphology of the GW150914 LIGO detection with a
+        template-fitting residual $<5\%$.
+  \item \textbf{Visualised} time-frequency spectrograms of the GW150914 strain data using SciPy
+        and Matplotlib, overlaying matched-filter templates generated from numerical relativity
+        waveform catalogues (LALSuite-compatible), and provided a critical analysis of detector
+        noise budgets, calibration uncertainties, and the statistical significance ($5.1\sigma$) of
+        the detection.
+\end{itemize}
+
+% ════════════════════════════════════════════════════════════
+%  TECHNICAL SKILLS
+% ════════════════════════════════════════════════════════════
+\section{Technical Skills}
+
+\begin{description}[leftmargin=4.4cm, style=sameline, labelsep=0.4em,
+                    font=\bfseries\color{accent}, itemsep=3pt, parsep=0pt, topsep=2pt]
+  \item[Programming Languages]
+    Python (NumPy, SciPy, Matplotlib, pandas, PyTorch, TensorFlow, Optuna),
+    C++17 (CMake, STL), Rust, TypeScript/JavaScript (Node.js, React, Next.js),
+    Dart (Flutter), SQL, C, HTML/CSS
+  \item[Physics \& Maths]
+    Numerical Integration (RK4, Dormand-Prince DOP853), Finite Difference Methods
+    (explicit \& implicit), General Relativity \& Linearised Gravity, Quantum Mechanics,
+    PDEs, Monte Carlo Simulations, Lattice Boltzmann Methods,
+    Variational Methods, Statistical Mechanics
+  \item[Machine Learning \& AI]
+    Physics-Informed Neural Networks (PINNs), Convolutional Autoencoders (1D CNN, U-Net),
+    Recurrent Architectures (LSTM, WaveNet), Hidden Markov Models (HMM),
+    Hyperparameter Optimisation (Optuna), OpenCV, Gemini API
+  \item[Web \& Mobile]
+    React Native, Flutter, Next.js, Vite, Tailwind CSS, Socket.io, Flask, Capacitor
+  \item[Databases \& DevOps]
+    PostgreSQL, PostGIS, SQLite, Docker, Git, CMake, Linux (Bash)
+  \item[Scientific Libraries]
+    Uproot, Awkward Array, ROOT (via Uproot), LALSuite-compatible waveforms,
+    face\_recognition, Streamlit
+  \item[Domain APIs]
+    OANDA REST API, Google Maps Platform, OpenRouteService, OR-Tools, Google Gemini 2.0
+  \item[Authoring]
+    \LaTeX, Markdown, technical report writing
+\end{description}
+
+% ════════════════════════════════════════════════════════════
+%  PROJECTS — COMPUTATIONAL ASTROPHYSICS & RELATIVITY
+% ════════════════════════════════════════════════════════════
+\section{Projects: Computational Astrophysics \& Relativity}
+
+\begin{project}{Black-Hole Ray Tracer \& Gravitational Lensing Visualiser}{C++17, Physically-Based Rendering, General Relativity}
+  \item \textbf{Engineered} a C++ ray tracer that renders a black hole scene featuring a relativistic accretion disk, event horizon, and gravitational lensing.
+  \item \textbf{Implemented} relativistic effects including Doppler beaming and light-bending, with animation capabilities to simulate a 120-frame orbital sequence at a safe distance.
+  \item \textbf{Optimised} rendering with multi-threading and a custom vector math library (\texttt{vec3.h}), supporting PPM image output and FFmpeg-based video generation.
+\end{project}
+
+\begin{project}{Gravitational Wave Chirp Visualisation}{Python, NumPy, Matplotlib, GWPy, GWOSC}
+  \item \textbf{Simulated} a Newtonian inspiral chirp (GW150914-like) to generate simulated strain and instantaneous frequency plots.
+  \item \textbf{Implemented} dynamic amplitude scaling to overlay simulated waveforms on whitened public LIGO data for visual comparison.
+  \item \textbf{Visualised} data using Python (NumPy, Matplotlib, and GWPy) to fetch and whiten real GWOSC signals.
+\end{project}
+
+\begin{project}{N-Body Gravitational Simulator (DOP853 \& Adaptive Stepping)}{Python, NumPy, SciPy, Matplotlib}
+  \item \textbf{Developed} a comprehensive simulation suite for two-body and three-body problems using the high-order Dormand-Prince (DOP853) numerical integrator.
+  \item \textbf{Implemented} adaptive step-size control and collision detection to maintain machine-precision energy conservation (relative error $\sim 10^{-15}$).
+  \item \textbf{Visualised} chaotic dynamics including the Figure-8 orbit and hierarchical systems via 6-panel analysis plots, phase space diagrams, and real-time animations.
+\end{project}
+
+% ════════════════════════════════════════════════════════════
+%  PROJECTS — MACHINE LEARNING & AI
+% ════════════════════════════════════════════════════════════
+\section{Projects: Machine Learning \& AI in Physics}
+
+\begin{project}{Astrophysical Signal Denoising --- ``The Clarifyer''}{Python, PyTorch, TensorFlow, 1D CNN, U-Net, LSTM, WaveNet}
+  \item \textbf{Trained} neural network autoencoders (1D CNN, U-Net, LSTM, and WaveNet-inspired) to denoise simulated gravitational-wave and pulsar signals.
+  \item \textbf{Engineered} a noise modelling suite incorporating Gaussian, coloured detector noise (LIGO PSD), and instrumental glitches (blips, whistles).
+  \item \textbf{Optimised} performance using PyTorch and TensorFlow, achieving SNR improvements of 5--15\,dB and correlation coefficients $>0.8$ with original signals.
+\end{project}
+
+\begin{project}{Computational Geodynamo Physics-Informed Neural Network (PINN)}{Python, PyTorch, Optuna, PDEs}
+  \item \textbf{Implemented} a PINN in PyTorch to solve a 2D magnetic induction equation (scalar advection-diffusion) as a toy model for the Earth's geodynamo.
+  \item \textbf{Mathematically Derived} the total loss function by enforcing the PDE residual, initial Gaussian pulse conditions, and Dirichlet boundary conditions through automatic differentiation.
+  \item \textbf{Optimised} the architecture and hyperparameters using an Optuna study to minimise the physics-informed residual loss across the spatial-temporal domain.
+\end{project}
+
+\begin{project}{Facial Recognition Toolkit}{Python, OpenCV, face\_recognition (dlib)}
+  \item \textbf{Engineered} a Python command-line tool using OpenCV and the \texttt{face\_recognition}
+        library to perform real-time face detection and identification via both static images and
+        live webcam streams.
+  \item \textbf{Implemented} 128-dimensional face-embedding extraction (HOG + CNN pipeline)
+        with Euclidean-distance matching, supporting configurable tolerance thresholds for
+        precision/recall trade-off in low-light conditions.
+\end{project}
+
+% ════════════════════════════════════════════════════════════
+%  PROJECTS — NUMERICAL SIMULATIONS & COMPUTATIONAL PHYSICS
+% ════════════════════════════════════════════════════════════
+\section{Projects: Numerical Simulations \& Computational Physics}
+
+\begin{project}{Quantum Mechanics: 1D Schrödinger Equation Solver}{Python, NumPy, SciPy (sparse eigensolvers), Matplotlib}
+  \item \textbf{Implemented} a finite-difference numerical solver for the time-independent Schrödinger equation using sparse matrix eigenvalue methods.
+  \item \textbf{Solved} multiple potential types including infinite/finite wells, harmonic oscillators (Hermite wavefunctions), and double wells.
+  \item \textbf{Visualised} energy eigenvalues, wavefunction nodes, and quantum tunnelling phenomena with exponential transmission dependence on barrier width.
+\end{project}
+
+\begin{project}{Variational Quantum Monte Carlo (VQMC) Engine}{Rust, Metropolis Algorithm, Slater-Jastrow wavefunctions}
+  \item \textbf{Implemented} a high-performance VMC engine in Rust to estimate the ground-state energy of small atoms (Helium, Lithium) in atomic units.
+  \item \textbf{Simulated} electron configurations using the Metropolis algorithm with pluggable trial wavefunctions (Hydrogenic, Pad\'{e}, and Slater-Jastrow).
+  \item \textbf{Optimised} for multi-electron antisymmetry using Slater determinants ($D_{\uparrow}$/$D_{\downarrow}$) and visualised energy convergence via CSV trace logging.
+\end{project}
+
+\begin{project}{High-Performance Fluid Dynamics Simulator (Lattice Boltzmann D2Q9)}{C++17, LBM, CMake}
+  \item \textbf{Programmed} a D2Q9 Lattice Boltzmann Method simulation in C++ using the BGK collision model.
+  \item \textbf{Implemented} the ``stream and collide'' algorithm with periodic boundary conditions to simulate fluid flow.
+\end{project}
+
+\begin{project}{Barium Cloud Diffusion in the Ionosphere}{Python, NumPy, SciPy, Monte Carlo sensitivity analysis}
+  \item \textbf{Modelled} barium cloud diffusion in the lower ionosphere by numerically solving the
+        diffusion PDE $\partial_t n = \nabla\cdot(D\nabla n)$ using both 1D and 3D explicit
+        finite-difference (FTCS) schemes with Dirichlet and Neumann boundary conditions.
+  \item \textbf{Implemented} semi-analytical integration using Bessel function expansions to provide
+        a high-accuracy reference solution against which the numerical schemes were validated,
+        confirming second-order spatial convergence.
+  \item \textbf{Simulated} a Monte Carlo sensitivity analysis over the diffusion coefficient $D$
+        and initial cloud parameters to extract atmospheric quantities from synthetic observation
+        data, propagating uncertainties through the non-linear inversion pipeline.
+\end{project}
+
+\begin{project}{Z Boson Rediscovery --- CERN Open Data Analysis}{Python, Uproot, Awkward Array, SciPy, Matplotlib}
+  \item \textbf{Processed} real proton-proton collision event files from the CERN Open Data Portal
+        using \texttt{Uproot} and \texttt{Awkward Array} to reconstruct dimuon and dielectron
+        invariant mass spectra from four-vectors:
+        $M^2 = (E_1+E_2)^2 - |\mathbf{p}_1+\mathbf{p}_2|^2c^2$.
+  \item \textbf{Rediscovered} the Z boson resonance at $M_Z \approx 91.2\,\mathrm{GeV}/c^2$ by
+        fitting a Breit-Wigner (relativistic) line shape convolved with a Gaussian detector
+        resolution function using \texttt{scipy.optimize.curve\_fit}.
+  \item \textbf{Visualised} the full invariant mass spectrum from $20\,\mathrm{GeV}$ to
+        $120\,\mathrm{GeV}$, identifying background contributions and comparing the measured
+        decay width $\Gamma_Z$ against the PDG value.
+\end{project}
+
+\begin{project}{Ising Model Monte Carlo Simulation}{Python, NumPy, Metropolis algorithm, statistical mechanics}
+  \item \textbf{Simulated} the Ising model of ferromagnetism on 2D lattices (square, triangular, hexagonal) using the Metropolis algorithm.
+  \item \textbf{Visualised} real-time spin evolution and identified phase transitions at the critical temperature ($T_c \approx 2.269$ for square lattices) through thermodynamic analysis of magnetization and specific heat.
+\end{project}
+
+% ════════════════════════════════════════════════════════════
+%  PROJECTS — QUANTITATIVE FINANCE & ALGORITHMIC TRADING
+% ════════════════════════════════════════════════════════════
+\section{Projects: Quantitative Finance \& Algorithmic Trading}
+
+\begin{project}{Ombra Algorithmic Trading Framework}{Python, HMM, SQLite, Optuna, Streamlit, OANDA API}
+  \item \textbf{Engineered} a multi-asset institutional-grade trading bot incorporating Hidden
+        Markov Model (HMM) regime detection to classify market states (trending, mean-reverting,
+        volatile), dynamically adjusting position sizing and entry logic per regime.
+  \item \textbf{Implemented} limit-order execution with configurable slippage guardrails and
+        automated SQLite database pruning to maintain a rolling history without unbounded
+        storage growth, supporting continuous 24/7 operation.
+  \item \textbf{Optimised} strategy hyperparameters (EMA spans, HMM states, risk fraction) via
+        Optuna on historical replay backtests, maximising the out-of-sample Sharpe ratio and
+        minimising maximum drawdown; deployed a Streamlit telemetry dashboard for live
+        equity-curve monitoring.
+\end{project}
+
+\begin{project}{OANDA Trend Analysis Suite --- ``Trendy''}{Python, OANDA REST API, pandas, Matplotlib}
+  \item \textbf{Engineered} a multi-asset trend screener analysing 44 instruments (Forex, Commodities, Indices) using the OANDA REST API.
+  \item \textbf{Designed} a sophisticated EMA-based algorithm (8, 50, and 200 EMA) with multiple timeframe alignment (e.g., 4hr vs.\ weekly) to identify long/short trends.
+  \item \textbf{Optimised} for speed by creating simplified versions (up to 75\% faster) and packaged the suite into standalone Windows 64-bit executables.
+\end{project}
+
+% ════════════════════════════════════════════════════════════
+%  PROJECTS — SOFTWARE ENGINEERING
+% ════════════════════════════════════════════════════════════
+\section{Projects: Full-Stack \& Mobile Software Engineering}
+
+\begin{project}{GameifyLife --- Hybrid Academic Dashboard}{Next.js, Capacitor, Gemini 2.0 API, TypeScript}
+  \item \textbf{Engineered} a hybrid mobile app (iOS/Android) using Next.js and Capacitor, featuring a Gemini 2.0 Flash AI assistant for smart study recommendations.
+  \item \textbf{Implemented} 15+ native features including haptic feedback, camera integration, GPS tracking, and background synchronisation.
+\end{project}
+
+\begin{project}{Turf Runner --- Location-Based Multiplayer Territory Game}{Flutter, Dart, Node.js, PostGIS, WebSockets}
+  \item \textbf{Developed} a Flutter and Node.js real-time multiplayer mobile game in which players
+        capture geo-fenced real-world territories, with game-state managed server-side via
+        WebSocket connections for sub-100\,ms latency updates.
+  \item \textbf{Engineered} conflict resolution and closed-loop territory validation using the
+        Haversine formula for great-circle distance and PostGIS spatial queries
+        (\texttt{ST\_Contains}, \texttt{ST\_Intersects}) on a PostgreSQL backend.
+  \item \textbf{Simulated} concurrent multi-player sessions with automated Jest integration tests,
+        verifying territory-ownership consistency under race-condition scenarios.
+\end{project}
+
+\begin{project}{MotionMonitor (Vesta) --- Clinical Fall Detection App}{React Native, Flask, Socket.IO, Python, CSV telemetry}
+  \item \textbf{Built} a React Native mobile application streaming live 6-DoF IMU telemetry
+        (accelerometer + gyroscope) at up to 100\,Hz to a Flask backend via Socket.IO,
+        with sub-frame latency suitable for real-time clinical monitoring.
+  \item \textbf{Implemented} a fall-detection alert loop using threshold-based peak detection on
+        the resultant acceleration vector $|\mathbf{a}|=\sqrt{a_x^2+a_y^2+a_z^2}$,
+        triggering push notifications and clinician-dashboard alerts on fall events.
+  \item \textbf{Engineered} a CSV telemetry-logging pipeline to accumulate labelled sensor data
+        for future supervised ML model development (e.g., LSTM-based fall classification).
+\end{project}
+
+\begin{project}{Real-Time Multiplayer Quiz Platform}{React (Vite), Node.js, Socket.io, TypeScript}
+  \item \textbf{Engineered} a low-latency multiplayer quiz platform supporting up to 12 concurrent
+        players per room via Socket.io namespaces, with server-authoritative game-state management
+        to prevent client-side cheating.
+  \item \textbf{Implemented} room lifecycle management (create, join, auto-expire), real-time
+        leaderboard updates on each answer submission, and adaptive question timing based on
+        per-room difficulty settings.
+\end{project}
+
+\begin{project}{Delivery Route Optimiser --- ``Path Finder''}{Python, OR-Tools, Google Maps API, OpenRouteService, Genetic Algorithms}
+  \item \textbf{Implemented} route optimisation for multiple addresses using OSRM, Google Maps, and OpenRouteService with automatic fallback.
+  \item \textbf{Engineered} solvers for the Travelling Salesman Problem (TSP) using Nearest Neighbour, 2-opt improvement, OR-Tools, and Genetic Algorithms.
+\end{project}
+
+% ════════════════════════════════════════════════════════════
+%  ADDITIONAL ACADEMIC COURSEWORK & SKILLS
+% ════════════════════════════════════════════════════════════
+\section{Additional Coursework \& Academic Achievements}
+
+\begin{itemize}
+  \item \textbf{Advanced Quantum Mechanics:} Perturbation theory (time-independent and time-dependent),
+        variational principle, WKB approximation, identical particles and Pauli exclusion.
+  \item \textbf{General Relativity:} Tensor calculus, covariant differentiation, geodesic equation,
+        Schwarzschild and Kerr metrics, Penrose diagrams, Hawking radiation (conceptual).
+  \item \textbf{Statistical Mechanics:} Canonical and grand canonical ensembles, partition functions,
+        phase transitions, critical phenomena, Bose-Einstein and Fermi-Dirac statistics.
+  \item \textbf{Particle Physics:} Standard Model overview, Feynman diagram calculation (tree-level QED),
+        hadron spectroscopy, detector physics, data analysis with ROOT/Uproot.
+  \item \textbf{Electrodynamics:} Maxwell's equations in covariant form, Lienard-Wiechert potentials,
+        radiation from accelerating charges, waveguides and cavities.
+  \item \textbf{Mathematical Methods:} Complex analysis (contour integration, residue theorem),
+        Fourier and Laplace transforms, Green's functions, group theory fundamentals.
+\end{itemize}
+
+% ════════════════════════════════════════════════════════════
+%  LANGUAGES & SOFT SKILLS
+% ════════════════════════════════════════════════════════════
+\section{Languages \& Transferable Skills}
+
+\begin{multicols}{2}
+\begin{itemize}
+  \item English (Native)
+  \item Hindi / Punjabi (Fluent)
+  \item Technical report writing \& \LaTeX\ typesetting
+  \item Scientific communication and data storytelling
+  \item Agile development (Git branching, PR workflows)
+  \item Independent research and rapid upskilling
+\end{itemize}
+\end{multicols}
+
+% ════════════════════════════════════════════════════════════
+%  INTERESTS
+% ════════════════════════════════════════════════════════════
+\section{Interests}
+
+Gravitational wave astronomy and next-generation detector design $\cdot$
+Quantum computing algorithms for physics simulation $\cdot$
+High-performance scientific computing (GPU acceleration, CUDA) $\cdot$
+Competitive mathematics and physics olympiads $\cdot$
+Open-source scientific software contribution
+
+\vfill
+{\small\color{light}\textit{References available on request. CV prepared with \LaTeX. Last updated: February 2026.}}
+
+\end{document}

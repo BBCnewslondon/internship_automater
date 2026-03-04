@@ -10,7 +10,7 @@ import fitz
 import requests
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from .models import CoverLetterDraft, JobBrochureData, ResearchSummary, TailoredCV
 from .prompts import (
@@ -31,15 +31,15 @@ from .utils import (
 
 @dataclass
 class PipelineConfig:
-    openai_api_key: str
+    google_api_key: str
     tavily_api_key: str
-    model_name: str = "gpt-4o-mini"
+    model_name: str = "gemini-1.5-flash"
 
 
 class LLMClient:
-    def __init__(self, model_name: str, openai_api_key: str) -> None:
-        os.environ["OPENAI_API_KEY"] = openai_api_key
-        self._llm = ChatOpenAI(model=model_name, temperature=0)
+    def __init__(self, model_name: str, google_api_key: str) -> None:
+        os.environ["GOOGLE_API_KEY"] = google_api_key
+        self._llm = ChatGoogleGenerativeAI(model=model_name, temperature=0, convert_system_message_to_human=True)
 
     @retry_with_exponential_backoff(max_retries=5, initial_delay=1.0, backoff_factor=2.0)
     def invoke_structured(self, system_prompt: str, user_prompt: str, schema: Any) -> Any:
@@ -138,7 +138,7 @@ class CVFilter:
         user_prompt = (
             f"Role: {extracted.job_title} at {extracted.company_name}\n"
             f"Core Requirements:\n{requirements}\n\n"
-            f"Master CV (Markdown):\n{master_cv}\n"
+            f"Master CV:\n{master_cv}\n"
         )
         return self.llm_client.invoke_structured(
             FILTER_SYSTEM_PROMPT,
@@ -179,7 +179,7 @@ class CoverLetterSynthesizer:
 
 class InternshipApplicationPipeline:
     def __init__(self, config: PipelineConfig) -> None:
-        self.llm_client = LLMClient(config.model_name, config.openai_api_key)
+        self.llm_client = LLMClient(config.model_name, config.google_api_key)
         self.extractor = BrochureExtractor(self.llm_client, Path("tracking.csv"))
         self.researcher = WebResearcher(self.llm_client, config.tavily_api_key)
         self.filter = CVFilter(self.llm_client)
@@ -217,20 +217,20 @@ class InternshipApplicationPipeline:
 def load_pipeline_config() -> PipelineConfig:
     load_dotenv()
 
-    openai_api_key = os.getenv("OPENAI_API_KEY", "")
+    google_api_key = os.getenv("GOOGLE_API_KEY", "")
     tavily_api_key = os.getenv("TAVILY_API_KEY", "")
-    model_name = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    model_name = os.getenv("GOOGLE_MODEL", "gemini-1.5-flash")
 
     missing = []
-    if not openai_api_key:
-        missing.append("OPENAI_API_KEY")
+    if not google_api_key:
+        missing.append("GOOGLE_API_KEY")
     if not tavily_api_key:
         missing.append("TAVILY_API_KEY")
     if missing:
         raise ValueError(f"Missing required environment variables: {', '.join(missing)}")
 
     return PipelineConfig(
-        openai_api_key=openai_api_key,
+        google_api_key=google_api_key,
         tavily_api_key=tavily_api_key,
         model_name=model_name,
     )

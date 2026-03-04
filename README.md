@@ -52,9 +52,9 @@ copy .env.example .env
 ```
 
 Fill in keys in `.env`:
-- `OPENAI_API_KEY`
+- `GOOGLE_API_KEY`
 - `TAVILY_API_KEY`
-- `OPENAI_MODEL` (optional, defaults to `gpt-4o-mini`)
+- `GOOGLE_MODEL` (optional, defaults to `gemini-1.5-flash`)
 
 ## Run
 
