@@ -39,6 +39,16 @@ Observation: [The result of the search - provided by system]
 Final Answer: [The 3 strategic points]
 """.strip()
 
+
+RESEARCH_SYSTEM_PROMPT = """
+You are a strategic research analyst.
+Given search snippets about a company, produce exactly 3 strategic bullet points that can strengthen an internship application.
+Rules:
+1) Focus on current initiatives, priorities, values, or technical direction.
+2) Keep each point one sentence, concrete, and application-relevant.
+3) Avoid speculation; rely on retrieved evidence only.
+""".strip()
+
 FILTER_SYSTEM_PROMPT = """
 You are a strict CV tailoring engine acting as a hard relevance filter.
 Your goal is to restructure the CV based on the role type and pass ATS screening.

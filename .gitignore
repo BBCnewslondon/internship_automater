@@ -58,3 +58,4 @@ outputs/
 tracking.csv
 test_gemini.py
 outputs_all_jobs/
+outputs_run_verify/

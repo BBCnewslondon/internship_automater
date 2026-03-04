@@ -345,3 +345,24 @@ class InternshipApplicationPipeline:
             })
         
         return all_results
+
+def load_pipeline_config() -> PipelineConfig:
+    load_dotenv()
+
+    google_api_key = os.getenv("GOOGLE_API_KEY", "")
+    tavily_api_key = os.getenv("TAVILY_API_KEY", "")
+    model_name = os.getenv("GOOGLE_MODEL", "gemini-1.5-flash")
+
+    missing = []
+    if not google_api_key:
+        missing.append("GOOGLE_API_KEY")
+    if not tavily_api_key:
+        missing.append("TAVILY_API_KEY")
+    if missing:
+        raise ValueError(f"Missing required environment variables: {', '.join(missing)}")
+
+    return PipelineConfig(
+        google_api_key=google_api_key,
+        tavily_api_key=tavily_api_key,
+        model_name=model_name,
+    )
